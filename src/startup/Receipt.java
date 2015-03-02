@@ -57,28 +57,27 @@ public class Receipt {
             resized[i] = lineItems[i];
         }
         lineItems = resized;
-        //resized = null;
+        //resized = null; // not necessary since local variables are destroyed
     }
     
-    /*@Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        LineItem li;
-        double total = 0.0, totalDiscount = 0.0;
-        sb.append("Customer: " + customer.getFullName() + "\n \n");
-        sb.append(LineItem.getHeader());
+    public double getTotal() {
+        double total = 0.0;
         for (int i = 0; i < lineCount; i++) {
-            li = lineItems[i];
-            total += li.getSubtotal();
-            totalDiscount += li.getDiscount();
-            sb.append(li);
+            total += lineItems[i].getSubtotal();
         }
-        sb.append(String.format("\nSubtotal: $%7.2f\nDiscount: $%7.2f\n",
-                total, totalDiscount));
-        sb.append(String.format("------------------\nTotal:    $%7.2f\n",
-                total - totalDiscount));
-        sb.append(" \nThank you for shopping at Kohl's!\n");
-        return sb.toString();
-    }*/
+        return total;
+    }
+    
+    public double getTotalDiscount() {
+        double totalDiscount = 0.0;
+        for (int i = 0; i < lineCount; i++) {
+            totalDiscount += lineItems[i].getDiscount();
+        }
+        return totalDiscount;
+    }
+    
+    public double getFinalTotal() {
+        return getTotal() - getTotalDiscount();
+    }
     
 }

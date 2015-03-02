@@ -13,7 +13,7 @@ public class Startup {
 
     public static void main(String[] args) {
         CashRegister cr = new CashRegister(new FakeDatabase());
-        cr.setTextOutputStrategy(new GuiOutputStrategy());
+        cr.setTextOutputStrategy(new ConsoleOutputStrategy());
         cr.setFormatter(
             new ReceiptFormatter(
                 new KohlsReceiptFormatStrategy1(
@@ -25,6 +25,7 @@ public class Startup {
         cr.addProductToSale("A101", 10);
         cr.addProductToSale("B101", 5);
         cr.addProductToSale("C101", 2);
+        cr.addProductToSale("D101", 1);
         cr.endSale();
     }
     

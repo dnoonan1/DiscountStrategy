@@ -6,12 +6,11 @@ package discount.strategy;
  */
 public class QuantityDiscount implements Discount {
 
-    // Not sure how to implement this yet
-    private double percentOff;
+    private double discount;
     private int minQuantity;
 
-    public QuantityDiscount(double percentOff, int minQuantity) {
-        this.percentOff = percentOff;
+    public QuantityDiscount(double discount, int minQuantity) {
+        this.discount = discount;
         this.minQuantity = minQuantity;
     }
     
@@ -19,9 +18,9 @@ public class QuantityDiscount implements Discount {
     @Override
     public double getDiscountAmount(double unitPrice, int qty) {
         if (qty >= minQuantity) {
-            return (percentOff / 100.0) * unitPrice * qty;
+            return discount * qty;
         } else {
-            return unitPrice * qty;
+            return 0.0;
         }
     }
 

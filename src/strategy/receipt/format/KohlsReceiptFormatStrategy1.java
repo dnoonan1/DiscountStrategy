@@ -38,6 +38,15 @@ public class KohlsReceiptFormatStrategy1 implements ReceiptFormatStrategy {
             }
         }
         // Have to add total and subtotal
+        sb.append(String.format(
+              //"ITEM   DESCRIPTION   PRICE    QTY  SUBTOTAL DISCOUNT\n"
+              //"----------------------------------------------------\n"
+              "\n                            TOTAL: $%6.2f\n"
+              + "                         DISCOUNT: $%6.2f\n"
+              + "                      --------------------\n"
+              + "                      FINAL TOTAL: $%6.2f\n",
+                    receipt.getTotal(), receipt.getTotalDiscount(),
+                receipt.getFinalTotal()));
         sb.append("\nThank you for shopping at Kohl's!\n");
         return sb.toString();
     }

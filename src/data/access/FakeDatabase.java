@@ -1,10 +1,8 @@
 package data.access;
 
 import startup.Customer;
-import discount.strategy.NoDiscount;
-import discount.strategy.PercentOffDiscount;
+import discount.strategy.*;
 import startup.Product;
-import discount.strategy.QuantityDiscount;
 import java.util.Arrays;
 
 /**
@@ -17,13 +15,14 @@ public final class FakeDatabase implements ReceiptDataAccessStrategy {
         new Customer("jsmith***1", "John", "Smith"),
         new Customer("sjones***1", "Sally", "Jones"),
         new Customer("bclementi1", "Bob", "Clementi"),
-        new Customer("aschwarze1", "Arnold", "Schwarzenegger")
+        new Customer("aschwarze1", "Arnold", "Schwarz")
     };
 
     private Product[] products = {
         new Product("A101", "Socks", 15.95, new PercentOffDiscount(30.0)),
         new Product("B101", "T-shirt", 12.95, new NoDiscount()),
-        new Product("C101", "Shoes", 55.95, new QuantityDiscount(10.0, 2))
+        new Product("C101", "Dress Shoes", 55.95, new QuantityDiscount(10.0, 2)),
+        new Product("D101", "Hoodie", 15.95, new FlatDiscount(2.00))
     };
     
     public FakeDatabase() {
