@@ -5,7 +5,8 @@ import startup.Product;
 
 /**
  *
- * @author Dan
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class KohlsLineItemFormatStrategy1 implements LineItemFormatStrategy {
 

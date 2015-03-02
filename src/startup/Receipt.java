@@ -7,7 +7,8 @@ import strategy.receipt.format.ReceiptFormatter;
 
 /**
  *
- * @author dnoonan1
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class Receipt {
 
@@ -20,14 +21,22 @@ public class Receipt {
     
     public Receipt(ReceiptDataAccessStrategy db, String custId)
             throws CustomerNotFoundException {
+        
         Customer c;
         this.db = db;
+        
+        // Iniialize array of LineItems
         this.lineItems = new LineItem[INITIAL_CAPACITY];
         c = db.findCustomer(custId);
+        
+        // If customer doesn't exist in database, throw exception
         if (c == null) {
             throw new CustomerNotFoundException();
         }
+        
+        // otherwise assign the customer
         this.customer = c;
+        
     }
 
     public Customer getCustomer() {
@@ -41,14 +50,20 @@ public class Receipt {
     public void addLineItem(String prodId, int qty)
             throws ProductNotFoundException {
         LineItem li;
+        
+        // If lineItems is full, resize it
         if (lineCount >= lineItems.length) {
             resizeLineItems();
         }
+        
+        // Add the new LineItem to the array
         li = new LineItem(db, prodId, qty);
+        // If the LineItem isn't found in the database, thrown an exception
         if (li == null) {
             throw new ProductNotFoundException();
         }
         lineItems[lineCount++] = li;
+        
     }
     
     private void resizeLineItems() {

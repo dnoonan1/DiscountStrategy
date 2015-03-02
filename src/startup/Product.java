@@ -4,7 +4,8 @@ import discount.strategy.Discount;
 
 /**
  *
- * @author dnoonan1
+ * @author Dan Noonan
+ * @version 1.0
  */
 public final class Product implements Sellable, Comparable {
 

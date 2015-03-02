@@ -2,7 +2,8 @@ package startup;
 
 /**
  *
- * @author dnoonan1
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class Customer implements Comparable {
     

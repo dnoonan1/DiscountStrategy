@@ -5,7 +5,8 @@ import strategy.lineitem.format.*;
 
 /**
  *
- * @author Dan
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class KohlsReceiptFormatStrategy1 implements ReceiptFormatStrategy {
 

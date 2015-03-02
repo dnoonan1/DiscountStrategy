@@ -4,7 +4,8 @@ import discount.strategy.Discount;
 
 /**
  *
- * @author Dan
+ * @author Dan Noonan
+ * @version 1.0
  */
 public interface Sellable {
     String getId();

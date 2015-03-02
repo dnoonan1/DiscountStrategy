@@ -1,8 +1,10 @@
 package discount.strategy;
 
 /**
- *
- * @author Dan
+ * FlatDiscount gives a constant amount off, regardless of price or quantity.
+ * 
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class FlatDiscount implements Discount {
 

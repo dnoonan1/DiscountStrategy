@@ -8,7 +8,8 @@ import strategy.receipt.format.ReceiptFormatter;
 
 /**
  *
- * @author dnoonan1
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class CashRegister {
     

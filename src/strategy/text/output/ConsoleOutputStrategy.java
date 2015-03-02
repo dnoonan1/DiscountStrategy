@@ -2,7 +2,8 @@ package strategy.text.output;
 
 /**
  *
- * @author Dan
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class ConsoleOutputStrategy implements TextOutputStrategy {
 

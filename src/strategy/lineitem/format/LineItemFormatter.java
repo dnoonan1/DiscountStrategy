@@ -4,7 +4,8 @@ import startup.LineItem;
 
 /**
  *
- * @author Dan
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class LineItemFormatter {
     

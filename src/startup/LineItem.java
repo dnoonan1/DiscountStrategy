@@ -1,17 +1,20 @@
 package startup;
 
 import data.access.ReceiptDataAccessStrategy;
+import exception.ProductNotFoundException;
 
 /**
  *
- * @author dnoonan1
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class LineItem {
 
     private final Product product;
     private final int qty;
 
-    public LineItem(ReceiptDataAccessStrategy db, String prodId, int qty) {
+    public LineItem(ReceiptDataAccessStrategy db, String prodId, int qty) 
+            throws ProductNotFoundException {
         this.product = db.findProduct(prodId);
         this.qty = qty;
     }

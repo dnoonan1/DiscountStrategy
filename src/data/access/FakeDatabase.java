@@ -6,11 +6,16 @@ import startup.Product;
 import java.util.Arrays;
 
 /**
- *
- * @author dnoonan1
+ * FakeDataBase is a simple database for testing the Point-of-Sale system. See
+ * startup.Startup for a demonstration.
+ * 
+ * @author Dan Noonan
+ * @version 1.0
+ * @see ReceipDataAccessStrategy, startup.Startup
  */
 public final class FakeDatabase implements ReceiptDataAccessStrategy {
     
+    // Customer array
     private Customer[] customers = {
         new Customer("jsmith***1", "John", "Smith"),
         new Customer("sjones***1", "Sally", "Jones"),
@@ -18,6 +23,7 @@ public final class FakeDatabase implements ReceiptDataAccessStrategy {
         new Customer("aschwarze1", "Arnold", "Schwarz")
     };
 
+    // Product array
     private Product[] products = {
         new Product("A101", "Socks", 15.95, new PercentOffDiscount(30.0)),
         new Product("B101", "T-shirt", 12.95, new NoDiscount()),
@@ -29,11 +35,14 @@ public final class FakeDatabase implements ReceiptDataAccessStrategy {
         sort();
     }
     
+    // Sort both arrays so they can be searched
+    // Used by findCustomer() and findProduct()
     private final void sort() {
         Arrays.sort(customers);
         Arrays.sort(products);
     }
    
+    // Find an Object in an array of Object
     private final Object searchArray(final Object[] a, final Object key) {
         if (key == null) {
             throw new IllegalArgumentException("key cannot be null or empty");
@@ -46,11 +55,13 @@ public final class FakeDatabase implements ReceiptDataAccessStrategy {
         }
     }
     
+    // Find a Customer by ID
     @Override
     public final Customer findCustomer(final String custId) {
         return (Customer)searchArray(customers, new Customer(custId));
     }
     
+    // Find a Product by ID
     @Override
     public final Product findProduct(final String prodId) {
         return (Product)searchArray(products, new Product(prodId));

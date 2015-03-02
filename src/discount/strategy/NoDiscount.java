@@ -1,8 +1,10 @@
 package discount.strategy;
 
 /**
- *
- * @author dnoonan1
+ * NoDiscount always gives $0 off, no matter unit price or quantity.
+ * 
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class NoDiscount implements Discount {
 

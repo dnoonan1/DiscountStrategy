@@ -1,8 +1,12 @@
 package exception;
 
 /**
- *
- * @author Dan
+ * ProductNotFoundException should be thrown if a product is not found in the
+ * database. The method findProduct() in ReceiptDataAccessStrategy throws it.
+ * 
+ * @author Dan Noonan
+ * @version 1.0
+ * @see data.access.ReceiptDataAccessStrategy
  */
 public class ProductNotFoundException extends Exception {
 

@@ -1,8 +1,11 @@
 package discount.strategy;
 
 /**
- *
- * @author dnoonan1
+ * QuantityDiscount gives a certain amount off (discount) per unit bought if
+ * the customer buys more than a certain amount (minQuantity).
+ * 
+ * @author Dan Noonan
+ * @version 1.0
  */
 public class QuantityDiscount implements Discount {
 
@@ -14,7 +17,6 @@ public class QuantityDiscount implements Discount {
         this.minQuantity = minQuantity;
     }
     
-    // Not yet implemented!
     @Override
     public double getDiscountAmount(double unitPrice, int qty) {
         if (qty >= minQuantity) {
