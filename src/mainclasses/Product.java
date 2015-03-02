@@ -1,32 +1,40 @@
-package discountstrategy;
+package mainclasses;
+
+import discount.strategy.Discount;
 
 /**
  *
  * @author dnoonan1
  */
-public final class Product implements Comparable {
+public final class Product implements Sellable, Comparable {
 
-    private String prodId;
+    private String id;
     private String description;
     private double unitPrice;
     private Discount discount;
 
+    public Product(String prodId) {
+        setId(prodId);
+    }
+    
     public Product(String prodId, String description, double unitPrice,
             Discount discount) {
-        this.prodId = prodId;
+        this(prodId);
         this.description = description;
         this.unitPrice = unitPrice;
         this.discount = discount;
     }
 
-    public String getProdId() {
-        return prodId;
+    @Override
+    public String getId() {
+        return id;
     }
 
-    public void setProdId(String prodId) {
-        this.prodId = prodId;
+    public void setId(String prodId) {
+        this.id = prodId;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
@@ -35,6 +43,7 @@ public final class Product implements Comparable {
         this.description = description;
     }
 
+    @Override
     public double getUnitPrice() {
         return unitPrice;
     }
@@ -43,6 +52,7 @@ public final class Product implements Comparable {
         this.unitPrice = unitPrice;
     }
 
+    @Override
     public Discount getDiscount() {
         return discount;
     }
@@ -51,6 +61,7 @@ public final class Product implements Comparable {
         this.discount = discount;
     }
     
+    @Override
     public double getDiscountAmount(int qty) {
         return discount.getDiscountAmount(unitPrice, qty);
     }
@@ -59,11 +70,11 @@ public final class Product implements Comparable {
     public int compareTo(Object o) {
         if (o instanceof Product) {
             Product that = (Product)o;
-            return this.prodId.compareTo(that.prodId);
-        } else if (o instanceof String) {
-            String that = prodId;
+            return this.id.compareTo(that.id);
+        } /*else if (o instanceof String) {
+            String that = (String)o;
             return this.prodId.compareTo(that);
-        }
+        }*/
         throw new ClassCastException("Object o must be type Product");
     }
     

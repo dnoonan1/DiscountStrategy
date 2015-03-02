@@ -1,4 +1,6 @@
-package discountstrategy;
+package mainclasses;
+
+import data.access.ReceiptDataAccessStrategy;
 
 /**
  *
@@ -9,8 +11,8 @@ public class LineItem {
     private final Product product;
     private final int qty;
 
-    public LineItem(Product product, int qty) {
-        this.product = product;
+    public LineItem(ReceiptDataAccessStrategy db, String prodId, int qty) {
+        this.product = db.findProduct(prodId);
         this.qty = qty;
     }
 
@@ -30,9 +32,15 @@ public class LineItem {
         return product.getDiscountAmount(qty);
     }
     
+    public static String getHeader() {
+        return "ITEM   DESCRIPTION   PRICE      QTY  SUBTOTAL   DISCOUNT\n" +
+               "---------------------------------------------------------\n";
+    }
+    
+    @Override
     public String toString() {
-        return String.format("%-5s  %-10s  $%6.2f  %2d  $%6.2f  $%6.2f\n",
-                product.getProdId(), product.getDescription(),
+        return String.format("%-5s  %-12s  $%8.2f  %3d  $%8.2f  $%8.2f\n",
+                product.getId(), product.getDescription(),
                 product.getUnitPrice(), qty, getSubtotal(), getDiscount());
     }
     

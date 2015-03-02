@@ -1,4 +1,7 @@
-package discountstrategy;
+package data.access;
+
+import mainclasses.Customer;
+import mainclasses.Product;
 
 /**
  *
