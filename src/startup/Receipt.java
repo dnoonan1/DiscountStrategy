@@ -1,8 +1,9 @@
-package mainclasses;
+package startup;
 
 import exception.ProductNotFoundException;
 import exception.CustomerNotFoundException;
 import data.access.ReceiptDataAccessStrategy;
+import strategy.receipt.format.ReceiptFormatter;
 
 /**
  *
@@ -16,8 +17,6 @@ public class Receipt {
     private final Customer customer;
     private LineItem[] lineItems;
     private int lineCount;
-//    private ReceiptFormatStrategy format;
-//    private LineItemFormatStrategy lineFormat;
     
     public Receipt(ReceiptDataAccessStrategy db, String custId)
             throws CustomerNotFoundException {
@@ -61,7 +60,7 @@ public class Receipt {
         //resized = null;
     }
     
-    @Override
+    /*@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         LineItem li;
@@ -80,6 +79,6 @@ public class Receipt {
                 total - totalDiscount));
         sb.append(" \nThank you for shopping at Kohl's!\n");
         return sb.toString();
-    }
+    }*/
     
 }

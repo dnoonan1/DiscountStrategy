@@ -1,9 +1,10 @@
-package mainclasses;
+package startup;
 
 import strategy.text.output.TextOutputStrategy;
 import exception.ProductNotFoundException;
 import exception.CustomerNotFoundException;
 import data.access.ReceiptDataAccessStrategy;
+import strategy.receipt.format.ReceiptFormatter;
 
 /**
  *
@@ -17,6 +18,7 @@ public class CashRegister {
     private ReceiptDataAccessStrategy db;
     private TextOutputStrategy output;
     private Receipt receipt;
+    private ReceiptFormatter formatter;
 
     public CashRegister() {}
     
@@ -31,9 +33,17 @@ public class CashRegister {
     public void setTextOutputStrategy(TextOutputStrategy output) {
         this.output = output;
     }
+    
+    public void setFormatter(ReceiptFormatter formatter) {
+        this.formatter = formatter;
+    }
 
     public final Receipt getReceipt() {
         return receipt;
+    }
+    
+    public final void writeMsg(String msg) {
+        output.writeText(msg);
     }
 
     public final void startNewSale(String custId) {
@@ -53,11 +63,11 @@ public class CashRegister {
     }
     
     public final void endSale() {
-        writeMsg(receipt.toString());
+        printReceipt();
     }
     
-    public final void writeMsg(String msg) {
-        output.writeText(msg);
+    public final void printReceipt() {
+        writeMsg(formatter.getFormattedReceipt(receipt).toString());
     }
     
 }

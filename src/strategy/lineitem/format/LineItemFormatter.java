@@ -1,6 +1,6 @@
 package strategy.lineitem.format;
 
-import mainclasses.LineItem;
+import startup.LineItem;
 
 /**
  *
@@ -20,7 +20,11 @@ public class LineItemFormatter {
         this.strategy = strategy;
     }
     
-    public String getFormattedReceipt(LineItem lineItem) {
+    public String getHeader() {
+        return strategy.getHeader();
+    }
+    
+    public String getFormattedLineItem(LineItem lineItem) {
         return strategy.getFormattedLineItem(lineItem);
     }
     

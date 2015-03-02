@@ -1,6 +1,6 @@
 package strategy.receipt.format;
 
-import mainclasses.Receipt;
+import startup.Receipt;
 
 /**
  *

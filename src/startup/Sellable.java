@@ -1,4 +1,4 @@
-package mainclasses;
+package startup;
 
 import discount.strategy.Discount;
 
@@ -11,5 +11,5 @@ public interface Sellable {
     String getDescription();
     double getUnitPrice();
     Discount getDiscount();
-    double getDiscountAmount(int qty);
+    double getDiscountValue(int qty);
 }

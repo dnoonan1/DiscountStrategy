@@ -1,4 +1,4 @@
-package mainclasses;
+package startup;
 
 import data.access.ReceiptDataAccessStrategy;
 
@@ -29,10 +29,10 @@ public class LineItem {
     }
     
     public double getDiscount() {
-        return product.getDiscountAmount(qty);
+        return product.getDiscountValue(qty);
     }
     
-    public static String getHeader() {
+    /*public static String getHeader() {
         return "ITEM   DESCRIPTION   PRICE      QTY  SUBTOTAL   DISCOUNT\n" +
                "---------------------------------------------------------\n";
     }
@@ -42,6 +42,6 @@ public class LineItem {
         return String.format("%-5s  %-12s  $%8.2f  %3d  $%8.2f  $%8.2f\n",
                 product.getId(), product.getDescription(),
                 product.getUnitPrice(), qty, getSubtotal(), getDiscount());
-    }
+    }*/
     
 }

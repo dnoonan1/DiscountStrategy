@@ -1,7 +1,7 @@
 package data.access;
 
-import mainclasses.Customer;
-import mainclasses.Product;
+import startup.Customer;
+import startup.Product;
 
 /**
  *

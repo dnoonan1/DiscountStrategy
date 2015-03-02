@@ -1,4 +1,4 @@
-package mainclasses;
+package startup;
 
 import discount.strategy.Discount;
 
@@ -62,7 +62,7 @@ public final class Product implements Sellable, Comparable {
     }
     
     @Override
-    public double getDiscountAmount(int qty) {
+    public double getDiscountValue(int qty) {
         return discount.getDiscountAmount(unitPrice, qty);
     }
 

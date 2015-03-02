@@ -1,7 +1,7 @@
 
 package strategy.lineitem.format;
 
-import mainclasses.LineItem;
+import startup.LineItem;
 
 /**
  *

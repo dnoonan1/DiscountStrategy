@@ -1,9 +1,9 @@
 package data.access;
 
-import mainclasses.Customer;
+import startup.Customer;
 import discount.strategy.NoDiscount;
 import discount.strategy.PercentOffDiscount;
-import mainclasses.Product;
+import startup.Product;
 import discount.strategy.QuantityDiscount;
 import java.util.Arrays;
 
