@@ -1,4 +1,4 @@
-package discount.strategy;
+package strategy.discount;
 
 /**
  * Discount is a simple interface. It has one method for calculating the value

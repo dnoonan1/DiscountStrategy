@@ -1,4 +1,4 @@
-package exception;
+package strategy.dataaccess;
 
 /**
  * CustomerNotFoundException should be thrown if a customer is not found in

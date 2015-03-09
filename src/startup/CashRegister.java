@@ -1,10 +1,8 @@
 package startup;
 
-import strategy.text.output.TextOutputStrategy;
-import exception.ProductNotFoundException;
-import exception.CustomerNotFoundException;
-import data.access.ReceiptDataAccessStrategy;
-import strategy.receipt.format.ReceiptFormatter;
+import strategy.output.text.TextOutputStrategy;
+import strategy.dataaccess.*;
+import strategy.format.receipt.ReceiptFormatter;
 
 /**
  *
@@ -46,12 +44,17 @@ public class CashRegister {
     public final void writeMsg(String msg) {
         output.writeText(msg);
     }
+    
+    public final void writeMsgLn(String msg) {
+        writeMsg(msg + "\n");
+    }
 
     public final void startNewSale(String custId) {
         try {
             receipt = new Receipt(db, custId);
         } catch (CustomerNotFoundException e) {
-            writeMsg(CUSTOMER_NOT_FOUND_MSG);
+            writeMsgLn(CUSTOMER_NOT_FOUND_MSG);
+            System.exit(0);
         }
     }
     
@@ -59,7 +62,7 @@ public class CashRegister {
         try {
             receipt.addLineItem(prodId, qty);
         } catch (ProductNotFoundException e) {
-            writeMsg(PRODUCT_NOT_FOUND_MSG);
+            writeMsgLn(PRODUCT_NOT_FOUND_MSG);
         }
     }
     

@@ -1,7 +1,8 @@
-package strategy.receipt.format;
+package strategy.format.receipt;
 
+import strategy.format.lineitem.LineItemFormatter;
+import strategy.format.lineitem.LineItemFormatStrategy;
 import startup.*;
-import strategy.lineitem.format.*;
 
 /**
  *
@@ -30,11 +31,12 @@ public class KohlsReceiptFormatStrategy1 implements ReceiptFormatStrategy {
         Customer customer = receipt.getCustomer();
         LineItem[] lineItems = receipt.getLineItems();
         StringBuilder sb = new StringBuilder();
+        sb.append("Printing Receipt...\n");
         sb.append("Customer: " + customer.getFullName() + "\n\n");
         sb.append(lineItemFormatter.getHeader());
         for (LineItem li : lineItems) {
             if (li != null) {
-                sb.append(lineItemFormatter.getFormattedLineItem(li).toString());
+                sb.append(lineItemFormatter.getFormattedLineItem(li));
                 sb.append("\n");
             }
         }

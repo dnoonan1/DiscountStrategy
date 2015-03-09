@@ -1,4 +1,4 @@
-package discount.strategy;
+package strategy.discount;
 
 /**
  * QuantityDiscount gives a certain amount off (discount) per unit bought if

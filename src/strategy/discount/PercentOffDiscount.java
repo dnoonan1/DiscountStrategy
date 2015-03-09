@@ -1,4 +1,4 @@
-package discount.strategy;
+package strategy.discount;
 
 /**
  * PercentOffDiscount gives a discount that is a percentage of the unit price.

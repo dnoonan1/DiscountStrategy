@@ -1,7 +1,6 @@
 package startup;
 
-import data.access.ReceiptDataAccessStrategy;
-import exception.ProductNotFoundException;
+import strategy.dataaccess.*;
 
 /**
  *

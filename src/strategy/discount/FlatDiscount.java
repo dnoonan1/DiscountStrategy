@@ -1,4 +1,4 @@
-package discount.strategy;
+package strategy.discount;
 
 /**
  * FlatDiscount gives a constant amount off, regardless of price or quantity.

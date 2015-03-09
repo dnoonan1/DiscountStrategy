@@ -1,4 +1,4 @@
-package discount.strategy;
+package strategy.discount;
 
 /**
  * NoDiscount always gives $0 off, no matter unit price or quantity.

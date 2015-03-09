@@ -1,4 +1,4 @@
-package strategy.text.output;
+package strategy.output.text;
 
 /**
  *

@@ -1,6 +1,6 @@
 package startup;
 
-import discount.strategy.Discount;
+import strategy.discount.Discount;
 
 /**
  *

@@ -1,6 +1,5 @@
-package data.access;
+package strategy.dataaccess;
 
-import exception.*;
 import startup.Customer;
 import startup.Product;
 

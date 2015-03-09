@@ -1,9 +1,7 @@
 package startup;
 
-import exception.ProductNotFoundException;
-import exception.CustomerNotFoundException;
-import data.access.ReceiptDataAccessStrategy;
-import strategy.receipt.format.ReceiptFormatter;
+import strategy.dataaccess.*;
+import strategy.format.receipt.ReceiptFormatter;
 
 /**
  *
@@ -59,9 +57,9 @@ public class Receipt {
         // Add the new LineItem to the array
         li = new LineItem(db, prodId, qty);
         // If the LineItem isn't found in the database, thrown an exception
-        if (li == null) {
+        /*if (li == null) {
             throw new ProductNotFoundException();
-        }
+        }*/
         lineItems[lineCount++] = li;
         
     }

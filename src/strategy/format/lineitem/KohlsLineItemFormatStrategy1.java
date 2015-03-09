@@ -1,4 +1,4 @@
-package strategy.lineitem.format;
+package strategy.format.lineitem;
 
 import startup.LineItem;
 import startup.Product;

@@ -1,9 +1,10 @@
 package startup;
 
-import data.access.FakeDatabase;
-import strategy.lineitem.format.KohlsLineItemFormatStrategy1;
-import strategy.receipt.format.*;
-import strategy.text.output.*;
+import strategy.output.text.ConsoleOutputStrategy;
+import strategy.format.receipt.ReceiptFormatter;
+import strategy.format.receipt.KohlsReceiptFormatStrategy1;
+import strategy.dataaccess.FakeDatabase;
+import strategy.format.lineitem.KohlsLineItemFormatStrategy1;
 
 /**
  * Startup tests the Kohl's Point-of-Sale system.
@@ -24,7 +25,7 @@ public class Startup {
             new ReceiptFormatter(
                 // ...requires a ReceiptFormatStrategy
                 new KohlsReceiptFormatStrategy1(
-                    // ...requires a LineItemFormatStrategy 
+                    // ...which requires a LineItemFormatStrategy 
                     new KohlsLineItemFormatStrategy1()
                 )
             )
@@ -35,7 +36,7 @@ public class Startup {
         cr.addProductToSale("A101", 10);
         cr.addProductToSale("B101", 5);
         cr.addProductToSale("C101", 2);
-        cr.addProductToSale("D101", 1);
+        cr.addProductToSale("D102", 1);
         // End sale and print receipt
         cr.endSale();
     }

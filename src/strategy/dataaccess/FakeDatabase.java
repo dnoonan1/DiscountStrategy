@@ -1,7 +1,10 @@
-package data.access;
+package strategy.dataaccess;
 
+import strategy.discount.QuantityDiscount;
+import strategy.discount.NoDiscount;
+import strategy.discount.PercentOffDiscount;
+import strategy.discount.FlatDiscount;
 import startup.Customer;
-import discount.strategy.*;
 import startup.Product;
 import java.util.Arrays;
 
@@ -57,14 +60,24 @@ public final class FakeDatabase implements ReceiptDataAccessStrategy {
     
     // Find a Customer by ID
     @Override
-    public final Customer findCustomer(final String custId) {
-        return (Customer)searchArray(customers, new Customer(custId));
+    public final Customer findCustomer(final String custId)
+            throws CustomerNotFoundException {
+        Customer c = (Customer)searchArray(customers, new Customer(custId));
+        if (c == null) {
+            throw new CustomerNotFoundException();
+        }
+        return c;
     }
     
     // Find a Product by ID
     @Override
-    public final Product findProduct(final String prodId) {
-        return (Product)searchArray(products, new Product(prodId));
+    public final Product findProduct(final String prodId) 
+            throws ProductNotFoundException {
+        Product p = (Product)searchArray(products, new Product(prodId));
+        if (p == null) {
+            throw new ProductNotFoundException();
+        }
+        return p;
     }
     
 }

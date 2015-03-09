@@ -1,4 +1,4 @@
-package exception;
+package strategy.dataaccess;
 
 /**
  * ProductNotFoundException should be thrown if a product is not found in the

@@ -1,4 +1,4 @@
-package strategy.receipt.format;
+package strategy.format.receipt;
 
 import startup.Receipt;
 
