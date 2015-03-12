@@ -71,7 +71,7 @@ public class CashRegister {
     }
     
     public final void printReceipt() {
-        writeMsg(formatter.getFormattedReceipt(receipt).toString());
+        writeMsg(formatter.getFormattedReceipt(receipt));
     }
     
 }

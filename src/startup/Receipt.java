@@ -14,8 +14,11 @@ public class Receipt {
     
     private ReceiptDataAccessStrategy db;
     private final Customer customer;
-    private LineItem[] lineItems;
-    private int lineCount;
+    
+    private LineItem[] lineItems; // Bad way to do this - violates
+    private int lineCount;        // encapsulation. These two fields should be
+                                  // be stored in their own class. Not doing so
+                                  // creates problems elswhere in the project.
     
     public Receipt(ReceiptDataAccessStrategy db, String custId)
             throws CustomerNotFoundException {
@@ -25,14 +28,11 @@ public class Receipt {
         
         // Iniialize array of LineItems
         this.lineItems = new LineItem[INITIAL_CAPACITY];
+        
+        // If customer doesn't exist in database, the following line will throw
+        // a CustomerNotFoundException
         c = db.findCustomer(custId);
         
-        // If customer doesn't exist in database, throw exception
-        if (c == null) {
-            throw new CustomerNotFoundException();
-        }
-        
-        // otherwise assign the customer
         this.customer = c;
         
     }
@@ -54,28 +54,24 @@ public class Receipt {
             resizeLineItems();
         }
         
-        // Add the new LineItem to the array
+        // If the Product isn't found in the database, the following line will
+        // thrown a ProductNotFoundException
         li = new LineItem(db, prodId, qty);
-        // If the LineItem isn't found in the database, thrown an exception
-        /*if (li == null) {
-            throw new ProductNotFoundException();
-        }*/
         lineItems[lineCount++] = li;
         
     }
     
     private void resizeLineItems() {
         LineItem[] resized = new LineItem[2 * lineItems.length];
-        for (int i = 0; i < lineCount; i++) {
-            resized[i] = lineItems[i];
-        }
-        lineItems = resized;
-        //resized = null; // not necessary since local variables are destroyed
-    }
+        for (int i = 0; i < lineCount; i++) { // Careful here - cannot use
+            resized[i] = lineItems[i];        // i < lineItems.length because
+        }                                     // lineItems is partially filled.
+        lineItems = resized;                  // See comments in Receipt about
+    }                                         // encapsulation.
     
     public double getTotal() {
         double total = 0.0;
-        for (int i = 0; i < lineCount; i++) {
+        for (int i = 0; i < lineCount; i++) { // Above comments apply here too
             total += lineItems[i].getSubtotal();
         }
         return total;
@@ -83,7 +79,7 @@ public class Receipt {
     
     public double getTotalDiscount() {
         double totalDiscount = 0.0;
-        for (int i = 0; i < lineCount; i++) {
+        for (int i = 0; i < lineCount; i++) { // Above comments apply here too
             totalDiscount += lineItems[i].getDiscount();
         }
         return totalDiscount;

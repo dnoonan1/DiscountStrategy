@@ -35,7 +35,7 @@ public class KohlsReceiptFormatStrategy1 implements ReceiptFormatStrategy {
         sb.append("Customer: " + customer.getFullName() + "\n\n");
         sb.append(lineItemFormatter.getHeader());
         for (LineItem li : lineItems) {
-            if (li != null) {
+            if (li != null) { // BAD - see comments in Receipt
                 sb.append(lineItemFormatter.getFormattedLineItem(li));
                 sb.append("\n");
             }

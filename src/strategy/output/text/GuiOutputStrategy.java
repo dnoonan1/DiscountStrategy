@@ -12,6 +12,10 @@ public class GuiOutputStrategy implements TextOutputStrategy {
 
     @Override
     public void writeText(String text) {
+        // Some complicated stuff to change the font of a JOptionPane and make
+        // sure output ends up on separate lines. However, blank lines don't
+        // display properly. Using a StringTokenizer might allow the problem to
+        // be fixed.
         String[] lines = text.split("\n");
         JLabel[] labels = new JLabel[lines.length];
         for (int i = 0; i < lines.length; i++) {

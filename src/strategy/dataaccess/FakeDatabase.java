@@ -48,7 +48,7 @@ public final class FakeDatabase implements ReceiptDataAccessStrategy {
     // Find an Object in an array of Object
     private final Object searchArray(final Object[] a, final Object key) {
         if (key == null) {
-            throw new IllegalArgumentException("key cannot be null or empty");
+            throw new IllegalArgumentException("key cannot be null");
         }
         int index = Arrays.binarySearch(a, key);
         if (index < 0) {

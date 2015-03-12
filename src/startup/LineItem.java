@@ -34,16 +34,4 @@ public class LineItem {
         return product.getDiscountValue(qty);
     }
     
-    /*public static String getHeader() {
-        return "ITEM   DESCRIPTION   PRICE      QTY  SUBTOTAL   DISCOUNT\n" +
-               "---------------------------------------------------------\n";
-    }
-    
-    @Override
-    public String toString() {
-        return String.format("%-5s  %-12s  $%8.2f  %3d  $%8.2f  $%8.2f\n",
-                product.getId(), product.getDescription(),
-                product.getUnitPrice(), qty, getSubtotal(), getDiscount());
-    }*/
-    
 }
